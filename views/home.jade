@@ -1,0 +1,65 @@
+script(src="//connect.soundcloud.com/sdk-2.0.0.js")
+script(src='//code.jquery.com/jquery-1.11.3.min.js')
+script(src='//code.jquery.com/jquery-migrate-1.2.1.min.js')
+script(src='/bootstrap/js/bootstrap.min.js')
+script(src='/javascripts/test.js')
+link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+link(rel='stylesheet', href='/stylesheets/style.css')
+link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
+
+style(type="text/css").
+	ul.finalList {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  text-align: center;
+	}
+
+	ul.finalList li {
+	  display: inline-block;
+	  height: 300px;
+	  margin: 0 1em 1em 0;
+	  position: relative;
+	  width: 300px;
+	}
+
+
+
+script(type="text/javascript").
+	var clientId;
+	$(document).ready(function(){
+		clientId = '#{client_id}';
+	})
+
+body
+	.col-md-12
+		.row
+			button(class="btn btn-success" onclick="authenticate()" id="authenticate").
+				Authenticate with SoundCloud
+			button(class="btn btn-success searchTemplate" id="template1") wow
+			button(class="btn btn-success searchTemplate" id="template2") damn
+			button(class="btn btn-success searchTemplate" id="template3") holy
+			button(class="btn btn-success searchTemplate" id="template4") beautiful
+			button(class="btn btn-success searchTemplate" id="template5") <3
+			button(class="btn btn-success searchTemplate" id="template6") dayum
+			button(class="btn btn-success searchTemplate" id="template7") omg
+			button(class="btn btn-success searchTemplate" id="template8") wonderful
+			button(class="btn btn-success searchTemplate" id="template9") dope
+			button(class="btn btn-success searchTemplate" id="template10") love
+			button(class="btn btn-success searchTemplate" id="template11") loving
+			.col-lg-4(id="searchByTextDiv")
+				.input-group
+					span.input-group-btn
+						button.btn.btn-default(type='button' id="btnSearchByText") Go!
+					input.form-control(type='text', placeholder='Search for...' id="searchText")
+	div(id="results")
+		div(id="myFollowingsResults", style="display:none" class="col-md-3")
+			h2 My Followings
+			ul(class="list-group" id="followingsList")
+		div(id="commentsResults" , style="display:none" class="col-md-9")
+			h2 Tracks
+			div(class="row" id="trackThumbnails")
+		i(class="fa fa-cog fa-spin" style="display:none" id="cog-spinnerTracks")
+
+
+
