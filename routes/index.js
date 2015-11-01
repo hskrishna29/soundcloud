@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 
 router.get('/', function(req,res,next){
-var clientId = process.env.appId;
+var clientId = 'b164557c5de985740b81128bce5e1b60';
 res.render('home', {title : 'Hi!' , client_id : clientId});
 
 });
