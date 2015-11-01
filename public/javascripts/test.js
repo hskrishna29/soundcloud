@@ -248,7 +248,7 @@
 			$('#cog-spinnerTracks').hide();
 	}
 
-	function getAllMyFollowings(SC ,callback)
+	function getAllMyFollowings(callback)
 	{
 		$('#followingsList').html('');
 		$('#cog-spinnerTracks').show();
@@ -282,9 +282,11 @@
 	{
 		SC.initialize({
 		client_id: clientId,
-		redirect_uri: 'http://localhost:3000/callback'
+		redirect_uri: 'morning-woodland-9292.heroku.com/callback'
 		});
+
+		
 		SC.connect(function(){
-			getAllMyFollowings(SC , setup);
+			getAllMyFollowings(setup);
 		});
 	}
