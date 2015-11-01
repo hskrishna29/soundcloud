@@ -282,7 +282,7 @@
 	{
 		SC.initialize({
 		client_id: clientId,
-		redirect_uri: 'morning-woodland-9292.herokuapp.com/callback'
+		redirect_uri: 'http://morning-woodland-9292.herokuapp.com/callback'
 		});
 
 
