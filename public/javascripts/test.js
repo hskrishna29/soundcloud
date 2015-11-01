@@ -281,7 +281,7 @@
 	function authenticate()
 	{
 		SC.initialize({
-		client_id: clientId,
+		client_id: process.env.appId,
 		redirect_uri: 'http://morning-woodland-9292.herokuapp.com/callback'
 		});
 
