@@ -47,7 +47,7 @@
 			commentSpans = commentSpans + commentBody;
 		});
 
-		var newThumbnail = '<div class="col-sm-6 col-md-4" style="height:350px;overflow-y: auto">' + 
+		var newThumbnail = '<div class="col-sm-6 col-md-4 thumbnailContainer" style="height:320px;overflow-y: auto">' + 
 						    '<div class="thumbnail">' + 
 						    	'<a href="' + trackUrl + '" class="scLink" role="button">' +
 						    		'<img src="' + artworkUrl + '" alt="Could not load image">' + 
@@ -254,18 +254,17 @@
 		$('#cog-spinnerTracks').show();
 		SC.get('/me/followings', { limit : 200 }, function(followings){
 
-		for(var i =0;i <followings.length; i++){
+		for(var i =0;i <followings.collection.length; i++){
 
-			myFollowings.push(followings[i])
-			var thisFollowing = constructBadge(followings[i]);
+			var following = followings.collection[i];
+			myFollowings.push(following);
+			var thisFollowing = constructBadge(following);
 
-			$('#followingsList').append(thisFollowing)
+			$('#followingsList').append(thisFollowing);
 		}
 		console.log("Got all followers");
 		if(myFollowings.length > 0){
 		$('#myFollowingsResults').show();
-		$('#myFollowingsResults').show();
-
 		}
 
 		var allTracks = getAllTracks(myFollowings, getAllComments);
@@ -273,16 +272,15 @@
 		$('.searchTemplate').show();
 		$('#searchByTextDiv').show();
 		$("#authenticate").hide();
+		});
 		
-		})
 		callback();
-
 	}
 	function authenticate()
 	{
 		SC.initialize({
 		client_id: clientId,
-		redirect_uri: 'http://morning-woodland-9292.herokuapp.com/callback'
+		redirect_uri: 'http://localhost:3000/callback'
 		});
 
 
